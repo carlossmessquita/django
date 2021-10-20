@@ -3,7 +3,20 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return render(request, 'index.html')
+
+    receitas = {
+        1:'Lasanha',
+        2:'Sopa de Legumes',
+        3:'Sorvete',
+        4:'Bolo de Chocolate',
+        5:'Suco Verde',
+        6:'Torta de Limão'
+    }
+    dados = {
+        'nome_das_receitas' : receitas
+    }
+
+    return render(request, 'index.html', dados)
 
 
 def receita(request):
