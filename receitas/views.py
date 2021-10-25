@@ -2,6 +2,7 @@ from django.shortcuts import render, get_list_or_404, get_object_or_404
 from .models import Receita
 
 
+# Exibindo receitas na página inicial:
 def index(request):
 
     receitas = Receita.objects.order_by('-data_receita').filter(publicada=True)
@@ -12,6 +13,7 @@ def index(request):
     return render(request, 'index.html', dados)
 
 
+# Exibindo receitas cadastradas:
 def receita(request, receita_id):
 
     receita = get_object_or_404(Receita, pk=receita_id)
@@ -23,6 +25,7 @@ def receita(request, receita_id):
     return render(request, 'receita.html', receita_a_exibir)
 
 
+# Criando sistema de buscas e pesquisa por receitas:
 def buscar(request):
 
     lista_receitas = Receita.objects.order_by('-data_receita').filter(publicada=True)
