@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User  # Classe padrão do django para usuários no banco de dados.
 from django.contrib import auth, messages
-from receitas.models import Receita
+from receitas.views import Receita
 
 
 # Rota de cadastro e validações básicas:
